@@ -1,2 +1,2 @@
-# MakeBirthDayCake-OriginalChocolatePlate-
+# BirthDayCake-OriginalChocolatePlate-
 オリジナルメッセージ入りバースデーケーキを作る
