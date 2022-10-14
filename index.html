@@ -3,6 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
+  <style type="text/css" media="screen, print">
+    @font-face{
+      font-family: 'yosugara';
+      src: url('./font/yosugara1.1.ttf');
+    }
+    body { font-family: 'yosugara', serif }
+  </style>
   <title>オリジナルメッセージ入りのバースデーケーキを作る</title>
 </head>
 
@@ -31,26 +38,46 @@ function cakeCheck() {
   }
 }
 
-function setCake() {
-  var cake = cakeCheck();
+function setCake(cake) {
   var image = new Image();
   image.src = "./images/" + cake + ".jpg";
   ctx.drawImage(image, 0, 0, 500, 500);
 }
 
-function setMessage() {
+function setMessage(cake) {
   var message = document.getElementById("messageText").value;
-  ctx.font = '32px serif';
-  ctx.fillStyle = '#404040';
   ctx.textBaseline = 'center';
   ctx.textAlign = 'center';
-  ctx.fillText(message, 100, 100);
+
+  switch (cake){
+    case 'cake-1':
+      ctx.font = '26px yosugara, serif';
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillText(message, 180, 350);
+    break;
+    case 'cake-2':
+      ctx.font = '20px yosugara, serif';
+      ctx.fillStyle = '#864444';
+      ctx.fillText(message, 270, 250);
+    break;
+    case 'cake-3':
+      ctx.font = '16px yosugara, serif';
+      ctx.fillStyle = '#864444';
+      ctx.fillText(message, 300, 120);
+    break;
+    case 'cake-4':
+      ctx.font = '32px yosugara, serif';
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillText(message, 270, 265);
+    break;
+  }
 }
 
 function convertCanvasToImage() {
   initializeCanvas();
-  setCake();
-  setMessage();
+  var cake = cakeCheck();
+  setCake(cake);
+  setMessage(cake);
   document.getElementById("newImg").src = cvs.toDataURL();
 }
 </script>
