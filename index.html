@@ -42,6 +42,7 @@ function setCake(cake) {
   var image = new Image();
   image.src = "./images/" + cake + ".jpg";
   ctx.drawImage(image, 0, 0, 500, 500);
+  ctx.save();
 }
 
 function setMessage(cake) {
