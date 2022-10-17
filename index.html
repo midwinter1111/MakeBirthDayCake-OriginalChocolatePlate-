@@ -46,31 +46,36 @@ function setCake(cake) {
 
 function setMessage(cake) {
   var message = document.getElementById("messageText").value;
+  console.log(message);
   ctx.textBaseline = 'center';
   ctx.textAlign = 'center';
+  ctx.fillStyle = '#FFFFFF';
 
   switch (cake){
     case 'cake-1':
       ctx.font = '26px yosugara, serif';
-      ctx.fillStyle = '#FFFFFF';
-      ctx.fillText(message, 180, 350);
+      ctx.translate(175, 350);
+      ctx.rotate(25 * Math.PI / 180);
+      ctx.translate(-175, -350);
+      ctx.fillText(message, 175, 350);
     break;
     case 'cake-2':
-      ctx.font = '20px yosugara, serif';
-      ctx.fillStyle = '#864444';
-      ctx.fillText(message, 270, 250);
+      ctx.font = '26px yosugara, serif';
+      ctx.fillText(message, 240, 340);
     break;
     case 'cake-3':
-      ctx.font = '16px yosugara, serif';
-      ctx.fillStyle = '#864444';
-      ctx.fillText(message, 300, 120);
+      ctx.font = '26px yosugara, serif';
+      ctx.translate(150, 280);
+      ctx.rotate(10 * Math.PI / 180);
+      ctx.translate(-150, -280);
+      ctx.fillText(message, 150, 280);
     break;
     case 'cake-4':
       ctx.font = '32px yosugara, serif';
-      ctx.fillStyle = '#FFFFFF';
       ctx.fillText(message, 270, 265);
     break;
   }
+  ctx.restore();
 }
 
 function convertCanvasToImage() {
@@ -103,7 +108,7 @@ function convertCanvasToImage() {
   </tr>
   </table>
   <br><br>
-  Step2. 次に、チョコプレートの〇〇部分に描くメッセージを入力しましょう！<br>
+  Step2. 次に、お祝いする人の名前を入力しましょう！<br>
             下の枠内に入力してね！（できるだけ短めが良いかも）
   <br>
   <textarea id="messageText" placeholder="〇〇ちゃん"></textarea>
